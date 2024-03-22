@@ -1,0 +1,170 @@
+[
+    {
+        "nombre": "Año Nuevo",
+        "comentario": null,
+        "fecha": "2024-01-01",
+        "irrenunciable": "1"
+        "tipo": "Civil",
+    },
+    {
+        "nombre": "Viernes Santa",
+        "comentario": null,
+        "fecha": "2024-03-29",
+        "irrenunciable": "0"
+        "tipo": "Religioso",
+    },
+    {
+        "nombre": "Sábado Santo",
+        "comentario": null,
+        "fecha": "2024-03-30",
+        "irrenunciable": "0"
+        "tipo": "Religioso",
+    },
+    {
+        "nombre": "Día Nacional del Trabajo",
+        "comentario": null,
+        "fecha": "2024-05-01",
+        "irrenunciable": "1"
+        "tipo": "Civil",
+    },
+    {
+        "nombre": "Día de las Glorias Navales",
+        "comentario": null,
+        "fecha": "2024-05-21",
+        "irrenunciable": "0"
+        "tipo": "Civil",
+    },
+    {
+        "nombre": "Elecciones Primarias Alcaldes y Gobernadores",
+        "comentario": null,
+        "fecha": "2024-06-09",
+        "irrenunciable":{ 
+			"1": "Por Confirmar"
+		}
+        "tipo": "Civil",
+    },
+    {
+        "nombre": "Día Nacional de los Pueblos Indígenas",
+        "comentario": null,
+        "fecha": "2024-06-20",
+        "irrenunciable": "0"
+        "tipo": "Civil",
+    },
+    {
+        "nombre": "San Pedro y San Pablo",
+        "comentario": null,
+        "fecha": "2024-06-29",
+        "irrenunciable": "0"
+        "tipo": "Religioso",
+    },
+    {
+        "nombre": "Día de la Virgen del Carmen",
+        "comentario": null,
+        "fecha": "2024-07-16",
+        "irrenunciable": "0"
+        "tipo": "Religioso",
+    },
+    {
+        "nombre": "Asunción de la Virgen",
+        "comentario": null,
+        "fecha": "2024-08-15",
+        "irrenunciable": "0"
+        "tipo": "Religioso",
+    },
+    {
+        "nombre": "Independencia Nacional",
+        "comentario": null,
+        "fecha": "2024-09-18",
+        "irrenunciable": "1"
+        "tipo": "Civil",
+    },
+    {
+        "nombre": "Día de las Glorias del Ejército",
+        "comentario": null,
+        "fecha": "2024-09-19",
+        "irrenunciable": "1"
+        "tipo": "Civil",
+    },
+    {
+        "nombre": "	Feriado Adicional Fiestas Patrias",
+        "comentario": null,
+        "fecha": "2024-09-20",
+        "irrenunciable": "0"
+        "tipo": "Civil",
+    },
+    {
+        "nombre": "	Encuentro de Dos Mundos",
+        "comentario": null,
+        "fecha": "2024-10-12",
+        "irrenunciable": "0"
+        "tipo": "Civil",
+    },
+    {
+        "nombre": "Elecciones Municipales, Consejeros Regionales y Gobernadores Regionales",
+        "comentario": null,
+        "fecha": "2024-10-27",
+        "irrenunciable": "1"
+        "tipo": "Civil",
+    },
+    {
+        "nombre": "Día de las Iglesias Evangélicas y Protestantes",
+        "comentario": null,
+        "fecha": "2024-10-31",
+        "irrenunciable": "0"
+        "tipo": "Religioso",
+    },
+    {
+        "nombre": "Día de Todos los Santos",
+        "comentario": null,
+        "fecha": "2024-11-01",
+        "irrenunciable": "0"
+        "tipo": "Religioso",
+    },
+    {
+        "nombre": "Segunda Vuelta Elección Gobernadores Regionales",
+        "comentario": null,
+        "fecha": "2024-11-24",
+        "irrenunciable":{ 
+			"1": "Por Confirmar"
+		}
+        "tipo": "Civil",
+    },
+    {
+        "nombre": "Inmaculada Concepción",
+        "comentario": null,
+        "fecha": "2024-12-08",
+        "irrenunciable": "0"
+        "tipo": "Religioso",
+    },
+    {
+        "nombre": "Navidad",
+        "comentario": null,
+        "fecha": "2024-12-24",
+        "irrenunciable": "1"
+        "tipo": "Religioso",
+    }
+]
+
+[
+    {
+        "nombre": "Asalto y Toma del Morro de Arica",
+        "comentario": null,
+        "fecha": "2024-06-07",
+        "irrenunciable": "0"
+        "tipo": "Región de Arica y Parinacota",
+    },
+    {
+        "nombre": "Nacimiento del Prócer de la Independencia",
+        "comentario": null,
+        "fecha": "2024-08-20",
+        "irrenunciable": "0"
+        "tipo": "Comunas de Chillán y Chillán Viejo",
+    },
+    {
+        "nombre": "Feriado Bancario",
+        "comentario": null,
+        "fecha": "2024-12-31",
+        "irrenunciable": "0"
+        "tipo": "Trabajadores de Instituciones Bancarias",
+    },
+]
