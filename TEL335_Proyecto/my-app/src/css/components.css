@@ -10,9 +10,9 @@
     /* background-color: rgb(255, 255, 255) ; */
     background: transparent;
     /* background-color: transparent !important; */
-    color: rgb(111, 34, 90, 1) !important;
+    color: #004B85 !important;
     padding-bottom: 19.5px;
-    border-bottom: 5px solid rgb(111, 34, 90, 1) !important;
+    border-bottom: 5px solid #004B85 !important;
 }
 
 .color-burger {
@@ -24,7 +24,7 @@
 }
 
 .color-text-burger:hover {
-    background-color: rgb(111, 34, 90, 1) !important;
+    background-color: #004B85 !important;
     color: white !important;
 }
 
@@ -33,7 +33,7 @@
     width: 10rem;
     height: 10rem;
     border-radius: 50%;
-    border-left-color: rgb(111, 34, 90, 1);
+    border-left-color: #004B85;
 
     position: relative;
     

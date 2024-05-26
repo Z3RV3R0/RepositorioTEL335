@@ -17,15 +17,22 @@ const UserMain = () => {
 		// Datos simulados
 		const data = [
 			{ nombre: 'Fútbol', sede: 'Vitacura' },
-			{ nombre: 'Natación', sede: 'San Joaquín' },
-			{ nombre: 'Básquetbol', sede: 'Viña' },
-			{ nombre: 'Tenis', sede: 'Casa Central' },
-			{ nombre: 'Atletismo', sede: 'Conce' },
 			{ nombre: 'Voleibol', sede: 'Vitacura' },
-			{ nombre: 'Hockey', sede: 'San Joaquín' },
-			{ nombre: 'Rugby', sede: 'Viña' },
-			{ nombre: 'Esgrima', sede: 'Casa Central' },
-			{ nombre: 'Boxeo', sede: 'Conce' }
+			{ nombre: 'Basketball', sede: 'Vitacura' },
+			{ nombre: 'Tenis', sede: 'Vitacura' },
+			{ nombre: 'Fútbol', sede: 'San Joaquín' },
+			{ nombre: 'Tenis', sede: 'San Joaquín' },
+			{ nombre: 'VoleyPlaya', sede: 'San Joaquín' },
+			{ nombre: 'Basketball', sede: 'San Joaquín' },
+			{ nombre: 'Fútbol', sede: 'Viña' },
+			{ nombre: 'Basketball', sede: 'Viña' },
+			{ nombre: 'Natación', sede: 'Casa Central' },
+			{ nombre: 'Fútball', sede: 'Casa Central' },
+			{ nombre: 'Tenis', sede: 'Casa Central' },
+			{ nombre: 'Basketball', sede: 'Casa Central' },
+			{ nombre: 'Voleyball', sede: 'Casa Central' },
+			{ nombre: 'Futball', sede: 'Conce' },
+			{ nombre: 'Basket', sede: 'Conce' }
 		];
 
 		const grouped = data.reduce((acc, item) => {
