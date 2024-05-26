@@ -30,13 +30,6 @@ const Login = () => {
               />
             </div>
           </div>
-          <div className="field">
-            <label className="label"></label>
-            <div className="control has-text-centered">
-              {/* Enlace para recuperar contraseña con el color #008452 */}
-              <a href="#" style={{ color: '#008452' }}>Recuperar Contraseña</a>
-            </div>
-          </div>
           <div className="control has-text-centered">
             <button className="button is-primary">Iniciar Sesión</button>
             <button className="button is-primary ml-3">Crear usuario</button> {/* ml-3 para agregar margen a la izquierda */}
