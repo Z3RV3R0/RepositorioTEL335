@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import Link from 'next/link'; // Importa el componente Link de Next.js
 import 'bulma/css/bulma.min.css';
