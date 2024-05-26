@@ -15,7 +15,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    height: 100vh; /* Usar vh (viewport height) para que el body ocupe el 100% de la altura de la ventana del navegador */
+    height: 100%; /* Usar vh (viewport height) para que el body ocupe el 100% de la altura de la ventana del navegador */
     margin: 0; /* Eliminar márgenes predeterminados */
     padding: 0; /* Eliminar relleno predeterminado */
 }

@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import 'bulma/css/bulma.min.css';
 import '@/css/menu.css'; // Importa los estilos CSS para el menú
