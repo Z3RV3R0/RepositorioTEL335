@@ -7,8 +7,9 @@ import Navbar from '@/components/Navbar/Navbar'; // Importa el componente Navbar
 
 const Login = () => {
   return (
-    <section className="hero is-fullheight">
+    <div className="container">
       <Navbar /> {/* Agrega la barra de navegación */}
+      <section className="hero is-fullheight">
       <div className="hero-body">
         <div className="container has-text-centered">
           <h1 className="title" style={{ color: '#008452' }}>Iniciar Sesión</h1>
@@ -46,7 +47,8 @@ const Login = () => {
           </div>
         </div>
       </div>
-    </section>
+      </section>
+    </div>
   );
 };
 
