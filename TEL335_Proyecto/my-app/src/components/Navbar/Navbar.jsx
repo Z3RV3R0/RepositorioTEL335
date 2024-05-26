@@ -9,7 +9,7 @@ const Navbar = () => {
         <nav className="navbar color-nabvar is-fixed-top p-3" role="navigation" aria-label="main navigation">
             <div className="navbar-brand">
                 <p className="navbar-item">
-                    Hola que tal
+                    Hola 
                 </p>
             </div>
         </nav>
