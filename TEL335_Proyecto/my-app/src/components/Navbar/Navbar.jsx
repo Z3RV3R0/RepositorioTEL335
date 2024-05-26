@@ -7,15 +7,6 @@ import "@/css/components.css";
 
 const Navbar = () => {
     return (
-<<<<<<< HEAD
-      <nav className="navbar color-navbar is-fixed-top is-centered p-3" role="navigation" aria-label="main navigation">
-        <div className="navbar-brand">
-          <p className="navbar-item">
-            USM
-          </p>
-        </div>
-      </nav>
-=======
         <nav className="navbar color-nabvar is-fixed-top p-3" role="navigation" aria-label="main navigation">
             <div className="navbar-brand">
                 <div className="navbar-start">
@@ -25,7 +16,6 @@ const Navbar = () => {
                 </div>
             </div>
         </nav>
->>>>>>> 8db1661ecc55b8c936bb7bcca21add8569fb2155
     );
   };
 

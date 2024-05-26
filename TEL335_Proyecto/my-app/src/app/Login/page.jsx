@@ -41,8 +41,8 @@ const Login = () => {
           </div>
           <div className="control has-text-centered">
             {/* Utiliza el componente Link de Next.js para el botón "Crear usuario" */}
-            <Link href="/Login/Crear" className="button is-primary">Crear usuario</Link>
-            <button className="button is-primary ml-3">Iniciar Sesión</button> {/* ml-3 para agregar margen a la izquierda */}
+            <Link href="/User" className="button is-primary m-2">Iniciar sesión</Link>
+            <Link href="/Login/Crear" className="button is-primary m-2">Crear usuario</Link>
           </div>
         </div>
       </div>
