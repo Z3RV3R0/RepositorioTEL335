@@ -11,7 +11,7 @@ const Navbar = () => {
             <div className="navbar-brand">
                 <div className="navbar-start">
                     <p className="navbar-item has-text-centered">
-                        DFIDER
+                        DEFIDER
                     </p>
                 </div>
             </div>
