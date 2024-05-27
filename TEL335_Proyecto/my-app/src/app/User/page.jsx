@@ -5,7 +5,7 @@ import Link from 'next/link'; // Asegúrate de importar Link desde 'next/link' s
 import { mdiTriangleDown } from '@mdi/js'; // Asegúrate de tener este ícono instalado
 import Icon from '@mdi/react'; // Asegúrate de tener el componente Icon instalado
 import 'bulma/css/bulma.min.css';
-import '@/css/menu.css'; // Importa los estilos CSS para el menú
+import '@/css/menuUser.css'; // Importa los estilos CSS para el menú
 import NavbarUser from '@/components/NavbarUser/NavbarUser'; // Importa el componente Navbar
 
 const UserMain = () => {
