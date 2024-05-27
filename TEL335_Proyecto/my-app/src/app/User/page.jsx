@@ -22,6 +22,7 @@ const UserMain = () => {
 			{ nombre: 'Tenis', sede: 'Vitacura' },
 			{ nombre: 'Fútbol', sede: 'San Joaquín' },
 			{ nombre: 'Tenis', sede: 'San Joaquín' },
+			{ nombre: 'Padel', sede: 'Casa Central' },
 			{ nombre: 'VoleyPlaya', sede: 'San Joaquín' },
 			{ nombre: 'Basketball', sede: 'San Joaquín' },
 			{ nombre: 'Fútbol', sede: 'Viña' },
