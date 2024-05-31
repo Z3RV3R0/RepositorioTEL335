@@ -1,48 +1,90 @@
-"use client ";
-
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useHistory } from 'react-router-dom'; // Asegúrate de tener react-router-dom instalado
+"use client";
+import React from 'react';
+import 'bulma/css/bulma.min.css';
+import '@/css/menu.css'; // Importa los estilos CSS para el menú
+import Navbar from '@/components/Navbar/Navbar'; // Importa el componente Navbar
+import Link from 'next/link';
 
 const Crear = () => {
-  const [formData, setFormData] = useState({
-    nombre: '',
-    apellido: '',
-    rol: '',
-    correo: '',
-    contraseña: '',
-    repetirContraseña: ''
-  });
-
-  const history = useHistory();
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      // Envía los datos del formulario al servidor
-      await axios.post('/crearUsuario', formData);
-      history.push('/login'); // Redirige al usuario después de crear
-    } catch (error) {
-      console.error('Error al crear usuario:', error);
-    }
-  };
-
   return (
     <section className="hero is-fullheight">
-      {/* Agrega la barra de navegación */}
+      <Navbar /> {/* Agrega la barra de navegación */}
       <div className="hero-body">
         <div className="container has-text-centered">
           <h1 className="title" style={{ color: '#008452' }}>Crear Usuario</h1>
-          <form onSubmit={handleSubmit}>
-            {/* Resto del formulario */}
-          </form>
+          <div className="field">
+            <label className="label"></label>
+            <div className="control">
+              <input
+                className="input"
+                type="text"
+                placeholder="Nombre"
+              />
+            </div>
+          </div>
+          <div className="field">
+            <label className="label"></label>
+            <div className="control">
+              <input
+                className="input"
+                type="text"
+                placeholder="Apellido"
+              />
+            </div>
+          </div>
+          <div className="field">
+            <label className="label"></label>
+            <div className="control">
+              <input
+                className="input"
+                type="text"
+                placeholder="Apellido"
+              />
+            </div>
+          </div>
+          <div className="field">
+            <label className="label"></label>
+            <div className="control">
+              <input
+                className="input"
+                type="text"
+                placeholder="ROL"
+              />
+            </div>
+          </div>
+          <div className="field">
+            <label className="label"></label>
+            <div className="control">
+              <input
+                className="input"
+                type="email"
+                placeholder="Correo electrónico"
+              />
+            </div>
+          </div>
+          <div className="field">
+            <label className="label"></label>
+            <div className="control">
+              <input
+                className="input"
+                type="password"
+                placeholder="Contraseña"
+              />
+            </div>
+          </div>
+          <div className="field">
+            <label className="label"></label>
+            <div className="control">
+              <input
+                className="input"
+                type="password"
+                placeholder="Repetir Contraseña"
+              />
+            </div>
+          </div>
+          <div className="control has-text-centered">
+            <Link href="/Login" className="button is-primary">Crear</Link>
+          </div>
         </div>
       </div>
     </section>
