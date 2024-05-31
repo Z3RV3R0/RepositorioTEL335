@@ -22,7 +22,9 @@ const Main = () => {
             console.log('Error fetching data:', error);
         } else {
             console.log('Data fetched:', data);
-            setData(data);
+            // Ordenar los datos por Campus
+            const sortedData = data.sort((a, b) => a.Campus.localeCompare(b.Campus));
+            setData(sortedData);
         }
     };
 
