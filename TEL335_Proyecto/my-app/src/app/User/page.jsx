@@ -16,7 +16,7 @@ const UserMain = () => {
 	const fetchData = async () => {
 		// Datos simulados
 		const data = [
-			{ nombre: 'Fútbol', sede: 'Vitacura' },
+			{ nombre: 'Futbol', sede: 'Vitacura' },
 			{ nombre: 'Voleibol', sede: 'Vitacura' },
 			{ nombre: 'Basketball', sede: 'Vitacura' },
 			{ nombre: 'Tenis', sede: 'Vitacura' },
@@ -74,7 +74,7 @@ const UserMain = () => {
 											<ul>
 												{categories[category].map((item) => (
 													<li key={item.nombre}>
-														<Link href={`/${item.nombre}`} className='fondo-boton-blanco'>
+														<Link href={`/Sedes/Vitacura/${item.nombre}`} className='fondo-boton-blanco'>
 															{item.nombre}
 														</Link>
 													</li>
