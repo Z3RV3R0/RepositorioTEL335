@@ -1,95 +1,70 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client';
 
-export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+import { supabase } from '../utils/supabase/client';
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link'; // Asegúrate de importar Link desde 'next/link' si usas Next.js
+import { mdiTriangleDown } from '@mdi/js'; // Asegúrate de tener este ícono instalado
+import Icon from '@mdi/react'; // Asegúrate de tener el componente Icon instalado
+import 'bulma/css/bulma.min.css';
+import '@/css/menuUser.css'; // Importa los estilos CSS para el menú
+import NavbarUser from '@/components/NavbarUser/NavbarUser'; // Importa el componente Navbar
+
+const Main = () => {
+    const [data, setData] = useState([]);  // Estado para almacenar los datos de la tabla
+
+    // Función para cargar datos desde Supabase
+    const fetchData = async () => {
+        let { data, error } = await supabase
+            .from('Canchas')  // Nombre de la tabla en Supabase
+            .select('Campus, Tipo');
+
+        if (error) {
+            console.log('Error fetching data:', error);
+        } else {
+            console.log('Data fetched:', data);
+            setData(data);
+        }
+    };
+
+    // useEffect para cargar los datos cuando el componente se monte
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    return (
+        <div className="container">
+            <NavbarUser />
+            <section className='section mt-6'>
+                <div className='box box-transparente pb-6'>
+                    <h2 className="is-size-2 has-text-centered mb-4">Espacios Deportivos</h2>
+                    <table className="table is-striped is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th>Campus</th>
+                                <th>Tipo de Cancha</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {data.length > 0 ? (
+                                data.map((item, index) => (
+                                    <tr key={index}>
+                                        <td>{item.Campus}</td>
+                                        <td>{item.Tipo}</td>
+                                    </tr>
+                                ))
+                            ) : (
+                                <tr>
+                                    <td colSpan="2" className="has-text-centered">
+                                        No data available
+                                    </td>
+                                </tr>
+                            )}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
         </div>
-      </div>
+    );
+};
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
-}
+export default Main;

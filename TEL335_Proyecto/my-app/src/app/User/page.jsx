@@ -1,5 +1,6 @@
 'use client';
 
+import { supabase } from '@/utils/supabase/client';
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link'; // Asegúrate de importar Link desde 'next/link' si usas Next.js
 import { mdiTriangleDown } from '@mdi/js'; // Asegúrate de tener este ícono instalado
@@ -8,88 +9,62 @@ import 'bulma/css/bulma.min.css';
 import '@/css/menuUser.css'; // Importa los estilos CSS para el menú
 import NavbarUser from '@/components/NavbarUser/NavbarUser'; // Importa el componente Navbar
 
-const UserMain = () => {
-	const [categories, setCategories] = useState({});  // Estado para almacenar los datos agrupados por categorías
-	const [expandedCategory, setExpandedCategory] = useState(null);  // Estado para manejar qué categoría está expandida
+const Main = () => {
+    const [data, setData] = useState([]);  // Estado para almacenar los datos de la tabla
 
-	// Función para simular la carga de datos
-	const fetchData = async () => {
-		// Datos simulados
-		const data = [
-			{ nombre: 'Fútbol', sede: 'Vitacura' },
-			{ nombre: 'Voleibol', sede: 'Vitacura' },
-			{ nombre: 'Basketball', sede: 'Vitacura' },
-			{ nombre: 'Tenis', sede: 'Vitacura' },
-			{ nombre: 'Fútbol', sede: 'San Joaquín' },
-			{ nombre: 'Tenis', sede: 'San Joaquín' },
-			{ nombre: 'Padel', sede: 'Casa Central' },
-			{ nombre: 'VoleyPlaya', sede: 'San Joaquín' },
-			{ nombre: 'Basketball', sede: 'San Joaquín' },
-			{ nombre: 'Fútbol', sede: 'Viña' },
-			{ nombre: 'Basketball', sede: 'Viña' },
-			{ nombre: 'Natación', sede: 'Casa Central' },
-			{ nombre: 'Fútball', sede: 'Casa Central' },
-			{ nombre: 'Tenis', sede: 'Casa Central' },
-			{ nombre: 'Basketball', sede: 'Casa Central' },
-			{ nombre: 'Voleyball', sede: 'Casa Central' },
-			{ nombre: 'Futball', sede: 'Conce' },
-			{ nombre: 'Basket', sede: 'Conce' }
-		];
+    // Función para cargar datos desde Supabase
+    const fetchData = async () => {
+        let { data, error } = await supabase
+            .from('Canchas')  // Nombre de la tabla en Supabase
+            .select('Campus, Tipo');
 
-		const grouped = data.reduce((acc, item) => {
-			acc[item.sede] = acc[item.sede] || [];
-			acc[item.sede].push(item);
-			return acc;
-		}, {});
+        if (error) {
+            console.log('Error fetching data:', error);
+        } else {
+            console.log('Data fetched:', data);
+            setData(data);
+        }
+    };
 
-		setCategories(grouped);
-	};
+    // useEffect para cargar los datos cuando el componente se monte
+    useEffect(() => {
+        fetchData();
+    }, []);
 
-	// useEffect para cargar los datos cuando el componente se monte
-	useEffect(() => {
-		fetchData();
-	}, []);
-
-	const toggleCategory = (category) => {
-		setExpandedCategory(expandedCategory === category ? null : category);
-	};
-
-	return (
-		<div className="container">
-			<NavbarUser />
-			<section className='section mt-6'>
-				<div className='box box-transparente pb-6'>
-					<aside className="menu">
-						<p className="menu-label is-size-2 texto has-text-centered mb-1">Canchas Disponibles</p>
-						<div className='section'>
-							{Object.keys(categories).map(category => (
-								<ul key={category} className="menu-list m-1 p-0">
-									<li>
-										<a className={`fondo-gris ${expandedCategory === category ? "is-active" : ""}`}
-											onClick={() => toggleCategory(category)}
-											role='button'>
-											{category} <Icon className='is-pulled-right is-hidden-touch' path={mdiTriangleDown} size={1} />
-										</a>
-										{expandedCategory === category && (
-											<ul>
-												{categories[category].map((item) => (
-													<li key={item.nombre}>
-														<Link href={`/${item.nombre}`} className='fondo-boton-blanco'>
-															{item.nombre}
-														</Link>
-													</li>
-												))}
-											</ul>
-										)}
-									</li>
-								</ul>
-							))}
-						</div>
-					</aside>
-				</div>
-			</section>
-		</div>
-	);
+    return (
+        <div className="container">
+            <NavbarUser />
+            <section className='section mt-6'>
+                <div className='box box-transparente pb-6'>
+                    <h2 className="is-size-2 has-text-centered mb-4">Espacios Deportivos</h2>
+                    <table className="table is-striped is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th>Campus</th>
+                                <th>Tipo de Cancha</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {data.length > 0 ? (
+                                data.map((item, index) => (
+                                    <tr key={index}>
+                                        <td>{item.Campus}</td>
+                                        <td>{item.Tipo}</td>
+                                    </tr>
+                                ))
+                            ) : (
+                                <tr>
+                                    <td colSpan="2" className="has-text-centered">
+                                        No data available
+                                    </td>
+                                </tr>
+                            )}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    );
 };
 
-export default UserMain;
+export default Main;
