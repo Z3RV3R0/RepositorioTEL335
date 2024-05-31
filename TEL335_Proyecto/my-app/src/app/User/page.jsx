@@ -12,37 +12,11 @@ import NavbarUser from '@/components/NavbarUser/NavbarUser'; // Importa el compo
 const Main = () => {
     const [data, setData] = useState([]);  // Estado para almacenar los datos de la tabla
 
-<<<<<<< HEAD
     // Función para cargar datos desde Supabase
     const fetchData = async () => {
         let { data, error } = await supabase
             .from('Canchas')  // Nombre de la tabla en Supabase
             .select('Campus, Tipo');
-=======
-	// Función para simular la carga de datos
-	const fetchData = async () => {
-		// Datos simulados
-		const data = [
-			{ nombre: 'Futbol', sede: 'Vitacura' },
-			{ nombre: 'Voleibol', sede: 'Vitacura' },
-			{ nombre: 'Basketball', sede: 'Vitacura' },
-			{ nombre: 'Tenis', sede: 'Vitacura' },
-			{ nombre: 'Fútbol', sede: 'San Joaquín' },
-			{ nombre: 'Tenis', sede: 'San Joaquín' },
-			{ nombre: 'Padel', sede: 'Casa Central' },
-			{ nombre: 'VoleyPlaya', sede: 'San Joaquín' },
-			{ nombre: 'Basketball', sede: 'San Joaquín' },
-			{ nombre: 'Fútbol', sede: 'Viña' },
-			{ nombre: 'Basketball', sede: 'Viña' },
-			{ nombre: 'Natación', sede: 'Casa Central' },
-			{ nombre: 'Fútball', sede: 'Casa Central' },
-			{ nombre: 'Tenis', sede: 'Casa Central' },
-			{ nombre: 'Basketball', sede: 'Casa Central' },
-			{ nombre: 'Voleyball', sede: 'Casa Central' },
-			{ nombre: 'Futball', sede: 'Conce' },
-			{ nombre: 'Basket', sede: 'Conce' }
-		];
->>>>>>> c52cf6293645dad06c2356f2db01b9f470834fa6
 
         if (error) {
             console.log('Error fetching data:', error);
@@ -57,7 +31,6 @@ const Main = () => {
         fetchData();
     }, []);
 
-<<<<<<< HEAD
     return (
         <div className="container">
             <NavbarUser />
@@ -92,53 +65,6 @@ const Main = () => {
             </section>
         </div>
     );
-=======
-	// useEffect para cargar los datos cuando el componente se monte
-	useEffect(() => {
-		fetchData();
-	}, []);
-
-	const toggleCategory = (category) => {
-		setExpandedCategory(expandedCategory === category ? null : category);
-	};
-
-	return (
-		<div className="container">
-			<NavbarUser />
-			<section className='section mt-6'>
-				<div className='box box-transparente pb-6'>
-					<aside className="menu">
-						<p className="menu-label is-size-2 texto has-text-centered mb-1">Canchas Disponibles</p>
-						<div className='section'>
-							{Object.keys(categories).map(category => (
-								<ul key={category} className="menu-list m-1 p-0">
-									<li>
-										<a className={`fondo-gris ${expandedCategory === category ? "is-active" : ""}`}
-											onClick={() => toggleCategory(category)}
-											role='button'>
-											{category} <Icon className='is-pulled-right is-hidden-touch' path={mdiTriangleDown} size={1} />
-										</a>
-										{expandedCategory === category && (
-											<ul>
-												{categories[category].map((item) => (
-													<li key={item.nombre}>
-														<Link href={`/Sedes/Vitacura/${item.nombre}`} className='fondo-boton-blanco'>
-															{item.nombre}
-														</Link>
-													</li>
-												))}
-											</ul>
-										)}
-									</li>
-								</ul>
-							))}
-						</div>
-					</aside>
-				</div>
-			</section>
-		</div>
-	);
->>>>>>> c52cf6293645dad06c2356f2db01b9f470834fa6
 };
 
 export default Main;
