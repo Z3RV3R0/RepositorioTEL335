@@ -4,8 +4,6 @@ import Icon from '@mdi/react';
 import { mdiBellOutline } from '@mdi/js'; // Añade el ícono de campana
 import { useState } from 'react';
 import "@/css/components.css";
-import Reservas from '@/app/Reservas';
-import Calendario from '@/app/Calendario';
 import Link from 'next/link';
 
 const Navbar = () => {

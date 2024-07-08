@@ -8,7 +8,6 @@ import Icon from '@mdi/react'; // Asegúrate de tener el componente Icon instala
 import 'bulma/css/bulma.min.css';
 import '@/css/menuUser.css'; // Importa los estilos CSS para el menú
 import NavbarUser from '@/components/NavbarUser/NavbarUser'; // Importa el componente Navbar
-import CasaCentral from './CasaCentral/sede1';
 
 
 const Main = () => {
@@ -47,19 +46,7 @@ const Main = () => {
                     <table className="table is-striped is-fullwidth">
                         <tbody>
                             <div className="column is-one-third">
-                            <Link href="/CasaCentral" className="button is-primary mt-4">Casa Central</Link>
-                            </div>
-                            <div className="column is-one-third">
-                                <Link href="/sanjoaquin" className="button is-primary is-fullwidth">San Joaquín
-                                </Link>
-                            </div>
-                            <div className="column is-one-third">
-                                <Link href="/vinadelmar" className="button is-primary is-fullwidth">Viña del Mar
-                                </Link>
-                            </div>
-                            <div className="column is-one-third">
-                                <Link href="/vitacura" className="button is-primary is-fullwidth">Vitacura
-                                </Link>
+                            <Link href="User/casacentral" className="button is-primary mt-4">Casa Central</Link>
                             </div>
                         </tbody>
                     </table>
