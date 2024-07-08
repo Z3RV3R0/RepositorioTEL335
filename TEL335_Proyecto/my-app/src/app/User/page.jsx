@@ -8,8 +8,13 @@ import Icon from '@mdi/react'; // Asegúrate de tener el componente Icon instala
 import 'bulma/css/bulma.min.css';
 import '@/css/menuUser.css'; // Importa los estilos CSS para el menú
 import NavbarUser from '@/components/NavbarUser/NavbarUser'; // Importa el componente Navbar
+import CasaCentral from './CasaCentral/sede1';
+
 
 const Main = () => {
+
+
+
     const [data, setData] = useState([]);  // Estado para almacenar los datos de la tabla
 
     // Función para cargar datos desde Supabase
@@ -40,33 +45,28 @@ const Main = () => {
                 <div className='box box-transparente pb-6'>
                     <h2 className="is-size-2 has-text-centered mb-4">Espacios Deportivos</h2>
                     <table className="table is-striped is-fullwidth">
-                        <thead>
-                            <tr>
-                                <th>Campus</th>
-                                <th>Tipo de Cancha</th>
-                            </tr>
-                        </thead>
                         <tbody>
-                            {data.length > 0 ? (
-                                data.map((item, index) => (
-                                    <tr key={index}>
-                                        <td>{item.Campus}</td>
-                                        <td>{item.Tipo}</td>
-                                    </tr>
-                                ))
-                            ) : (
-                                <tr>
-                                    <td colSpan="2" className="has-text-centered">
-                                        No data available
-                                    </td>
-                                </tr>
-                            )}
+                            <div className="column is-one-third">
+                            <Link href="/CasaCentral" className="button is-primary mt-4">Casa Central</Link>
+                            </div>
+                            <div className="column is-one-third">
+                                <Link href="/sanjoaquin" className="button is-primary is-fullwidth">San Joaquín
+                                </Link>
+                            </div>
+                            <div className="column is-one-third">
+                                <Link href="/vinadelmar" className="button is-primary is-fullwidth">Viña del Mar
+                                </Link>
+                            </div>
+                            <div className="column is-one-third">
+                                <Link href="/vitacura" className="button is-primary is-fullwidth">Vitacura
+                                </Link>
+                            </div>
                         </tbody>
                     </table>
                 </div>
             </section>
         </div>
-    );
-};
+    )
+}
 
 export default Main;

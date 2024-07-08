@@ -4,8 +4,13 @@ import Icon from '@mdi/react';
 import { mdiBellOutline } from '@mdi/js'; // Añade el ícono de campana
 import { useState } from 'react';
 import "@/css/components.css";
+import Reservas from '@/app/Reservas';
+import Calendario from '@/app/Calendario';
+import Link from 'next/link';
 
 const Navbar = () => {
+
+
     return (
         <nav className="navbar color-navbar is-fixed-top p-3" role="navigation" aria-label="main navigation">
             <div className="navbar-brand">
@@ -16,12 +21,17 @@ const Navbar = () => {
                 </div>
             </div>
             <div className="navbar-end">
-                <div className="navbar-item">
-                    <button className="button is-primary">Calendario</button>
-                </div>
-                <div className="navbar-item">
-                    <button className="button is-primary">Reservas</button>
-                </div>
+                    <div className="column is-one-third">
+                        <Link href="/reservas">
+                            <button className="button is-info is-fullwidth">Reservas</button>
+                        </Link>
+                    </div>
+                    <div className="column is-one-third">
+                        <Link href="/calendario">
+                            <button className="button is-info is-fullwidth">Calendario</button>
+                        </Link>
+                    </div>
+                
                 <div className="navbar-item">
                     <Icon path={mdiBellOutline} size={1} className="has-text-white" />
                 </div>
