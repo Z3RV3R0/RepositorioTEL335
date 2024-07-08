@@ -43,13 +43,33 @@ const Main = () => {
             <section className='section mt-6'>
                 <div className='box box-transparente pb-6'>
                     <h2 className="is-size-2 has-text-centered mb-4">Espacios Deportivos</h2>
-                    <table className="table is-striped is-fullwidth">
-                        <tbody>
-                            <div className="column is-one-third">
-                            <Link href="User/casacentral" className="button is-primary mt-4">Casa Central</Link>
-                            </div>
-                        </tbody>
-                    </table>
+                    <div className="columns is-multiline is-centered">
+                        <div className="column is-one-third">
+                            <Link href="/User/casacentral">
+                                <button className="button is-primary is-fullwidth mt-4">Casa Central</button>
+                            </Link>
+                        </div>
+                        <div className="column is-one-third">
+                            <Link href="/User/concepcion">
+                                <button className="button is-primary is-fullwidth mt-4">Concepcion</button>
+                            </Link>
+                        </div>
+                        <div className="column is-one-third">
+                            <Link href="/User/sanjoaquin">
+                                <button className="button is-primary is-fullwidth mt-4">San Joaquin</button>
+                            </Link>
+                        </div>
+                        <div className="column is-one-third">
+                            <Link href="/User/vina">
+                                <button className="button is-primary is-fullwidth mt-4">Viña del mar</button>
+                            </Link>
+                        </div>
+                        <div className="column is-one-third">
+                            <Link href="/User/vitacura">
+                                <button className="button is-primary is-fullwidth mt-4">Vitacura</button>
+                            </Link>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>

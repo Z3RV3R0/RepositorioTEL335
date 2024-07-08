@@ -20,12 +20,12 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                     <div className="column is-one-third">
-                        <Link href="/reservas">
-                            <button className="button is-info is-fullwidth">Reservas</button>
-                        </Link>
+                            <Link href="reserva">
+                                <button className="button is-info is-fullwidth">Reserva</button>
+                            </Link>
                     </div>
                     <div className="column is-one-third">
-                        <Link href="/calendario">
+                        <Link href="/User/calendario">
                             <button className="button is-info is-fullwidth">Calendario</button>
                         </Link>
                     </div>
