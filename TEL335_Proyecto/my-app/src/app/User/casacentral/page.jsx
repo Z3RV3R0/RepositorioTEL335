@@ -33,7 +33,7 @@ const CasaCentral = () => {
                                         <div className="control">
                                             <div className="select is-fullwidth">
                                                 <select value={tipoCancha} onChange={handleTipoCanchaChange}>
-                                                    <option value="">tipo de cancha</option>
+                                                <option value="" disabled selected>tipo de cancha</option>
                                                     <option value="futbol">Fútbol</option>
                                                     <option value="tenis">Tenis</option>
                                                     <option value="basketball">Basketball</option>
@@ -46,10 +46,19 @@ const CasaCentral = () => {
                                         <div className="control">
                                             <div className="select is-fullwidth">
                                                 <select value={horario} onChange={handleHorarioChange}>
-                                                    <option value="">horario</option>
-                                                    <option value="morning">Mañana</option>
-                                                    <option value="afternoon">Tarde</option>
-                                                    <option value="evening">Noche</option>
+                                                    <option value=""disabled selected>horario</option>
+                                                    <option value="Bloque1">8:00 AM</option>
+                                                    <option value="Bloque2">9:00 AM</option>
+                                                    <option value="Bloque3">10:00 AM</option>
+                                                    <option value="Bloque4">11:00 AM</option>
+                                                    <option value="Bloque5">12:00 AM</option>
+                                                    <option value="Bloque6">1:00 AM</option>
+                                                    <option value="Bloque7">2:00 AM</option>
+                                                    <option value="Bloque8">3:00 AM</option>
+                                                    <option value="Bloque9">4:00 AM</option>
+                                                    <option value="Bloque10">5:00 AM</option>
+                                                    <option value="Bloque11">6:00 AM</option>
+                                                    <option value="Bloque12">7:00 AM</option>
                                                 </select>
                                             </div>
                                         </div>
