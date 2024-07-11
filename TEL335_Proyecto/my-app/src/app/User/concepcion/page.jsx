@@ -1,15 +1,50 @@
-"use client";
-import React from 'react';
+'use client';
+
+import { supabase } from '@/utils/supabase/client';
+import React, { useState, useEffect } from 'react';
 import 'bulma/css/bulma.min.css';
 import '@/css/menuConce.css'; // Importa los estilos CSS para el menú
 import NavbarUser from '@/components/NavbarUser/NavbarUser'; // Importa el componente Navbar
-import Link from 'next/link';
-import { useState } from 'react';
 
-const Concepcion = () => {
-
+const CasaCentral = () => {
     const [tipoCancha, setTipoCancha] = useState('');
     const [horario, setHorario] = useState('');
+    const [canchas, setCanchas] = useState([]);
+    const [bloques, setBloques] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        // Fetch data from Supabase
+        const fetchCanchas = async () => {
+            let { data, error } = await supabase
+                .from('Canchas')
+                .select('Tipo')
+                .eq('Campus', 'Concepcion');
+            
+            if (error) {
+                console.error('Error fetching canchas:', error);
+            } else {
+                console.log('Canchas fetched:', data);
+                setCanchas(data);
+            }
+        };
+
+        const fetchBloques = async () => {
+            let { data, error } = await supabase
+                .from('bloques')
+                .select('*');
+            
+            if (error) {
+                console.error('Error fetching bloques:', error);
+            } else {
+                console.log('Bloques fetched:', data);
+                setBloques(data);
+            }
+        };
+
+        fetchCanchas();
+        fetchBloques();
+    }, []);
 
     const handleTipoCanchaChange = (e) => {
         setTipoCancha(e.target.value);
@@ -17,6 +52,32 @@ const Concepcion = () => {
 
     const handleHorarioChange = (e) => {
         setHorario(e.target.value);
+    };
+
+    const handleReserve = async () => {
+        if (!tipoCancha || !horario) {
+            alert('Por favor, selecciona el tipo de cancha y el horario.');
+            return;
+        }
+
+        setLoading(true);
+
+        try {
+            const { error } = await supabase
+                .from('reserva')
+                .insert([{ bloque: horario, cancha: tipoCancha }]);
+
+            if (error) {
+                throw error;
+            }
+
+            alert('Reserva creada exitosamente');
+        } catch (error) {
+            console.error('Error al crear la reserva:', error.message);
+            alert('Error al crear la reserva. Por favor, intenta nuevamente.');
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -33,11 +94,14 @@ const Concepcion = () => {
                                         <div className="control">
                                             <div className="select is-fullwidth">
                                                 <select value={tipoCancha} onChange={handleTipoCanchaChange}>
-                                                <option value="" disabled selected>tipo de cancha</option>
-                                                    <option value="futbol">Fútbol</option>
-                                                    <option value="tenis">Tenis</option>
-                                                    <option value="basketball">Basketball</option>
-                                                    <option value="voley">Voley</option>
+                                                    <option value="" disabled>Tipo de cancha</option>
+                                                    {canchas.length > 0 ? (
+                                                        canchas.map((cancha, index) => (
+                                                            <option key={index} value={cancha.Tipo}>{cancha.Tipo}</option>
+                                                        ))
+                                                    ) : (
+                                                        <option disabled>Cargando...</option>
+                                                    )}
                                                 </select>
                                             </div>
                                         </div>
@@ -46,19 +110,14 @@ const Concepcion = () => {
                                         <div className="control">
                                             <div className="select is-fullwidth">
                                                 <select value={horario} onChange={handleHorarioChange}>
-                                                    <option value=""disabled selected>horario</option>
-                                                    <option value="Bloque1">8:00 AM</option>
-                                                    <option value="Bloque2">9:00 AM</option>
-                                                    <option value="Bloque3">10:00 AM</option>
-                                                    <option value="Bloque4">11:00 AM</option>
-                                                    <option value="Bloque5">12:00 AM</option>
-                                                    <option value="Bloque6">1:00 AM</option>
-                                                    <option value="Bloque7">2:00 AM</option>
-                                                    <option value="Bloque8">3:00 AM</option>
-                                                    <option value="Bloque9">4:00 AM</option>
-                                                    <option value="Bloque10">5:00 AM</option>
-                                                    <option value="Bloque11">6:00 AM</option>
-                                                    <option value="Bloque12">7:00 AM</option>
+                                                    <option value="" disabled>Horario</option>
+                                                    {bloques.length > 0 ? (
+                                                        bloques.map((bloque, index) => (
+                                                            <option key={index} value={bloque.bloque}>{bloque.bloque}</option>
+                                                        ))
+                                                    ) : (
+                                                        <option disabled>Cargando...</option>
+                                                    )}
                                                 </select>
                                             </div>
                                         </div>
@@ -68,14 +127,14 @@ const Concepcion = () => {
                         </div>
                     </div>
                     <div className="has-text-centered">
-                        <Link href="/User" className="button is-primary mt-4">
-                            Reservar
-                        </Link>
+                        <button onClick={handleReserve} className="button is-primary mt-4" disabled={loading}>
+                            {loading ? 'Reservando...' : 'Reservar'}
+                        </button>
                     </div>
                 </div>
             </section>
         </div>
     );
-}
+};
 
-export default Concepcion;
+export default CasaCentral;
